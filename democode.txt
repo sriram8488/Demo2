@@ -1,13 +1,11 @@
-node{
-stage('starting sonar'){
-withSonarQubeEnv {
-#SONAR_HOST_URL
-http://localhost:9000
-#SONAR_AUTH_TOKEN
+stage('Sonarqube analysis') {
+    steps {
+    script {
+         scannerHome = tool 'SonarScanner';
+        }
+     withSonarQubeEnv('SonarQube') {
+         bat "${scannerHome}/bin/sonar-scanner.bat" 
+    }
 
-#SONAR_EXTRA_PROPS
-#SONAR_MAVEN_GOAL
-sonar:sonar
-}
-}
-}
+    }
+        }
