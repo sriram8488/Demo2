@@ -1,11 +1,13 @@
-stage('Sonarqube start') {
-    environment {
-        scannerHome = tool 'SonarQube'
-    }
+node{
+stage('starting sonar'){
+withSonarQubeEnv {
+#SONAR_HOST_URL
+http://localhost:9000
+#SONAR_AUTH_TOKEN
 
-    steps {
-        withSonarQubeEnv {
-            bat "${scannerHome}/bin/sonar-scanner"
-        }
-    }
+#SONAR_EXTRA_PROPS
+#SONAR_MAVEN_GOAL
+sonar:sonar
+}
+}
 }
