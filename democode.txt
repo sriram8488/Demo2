@@ -1,5 +1,5 @@
 stage('Sonarqube analysis') {
-    ws('') {
+    ws('C:\Users\Sriram\.jenkins\workspace') {
          scannerHome = tool 'SonarScanner';
         }
      withSonarQubeEnv('SonarQube') {
