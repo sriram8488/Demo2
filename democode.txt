@@ -1,6 +1,5 @@
 stage('Sonarqube analysis') {
-    steps {
-    script {
+    ws('') {
          scannerHome = tool 'SonarScanner';
         }
      withSonarQubeEnv('SonarQube') {
